@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript Object</title>
+</head>
+<body>
+    <script>
+        var a = {
+            name: "Hạnh",
+            class: "12"
+        };
+        console.log(a);
+
+        a.fullName = "Trần Ngọc Hạnh";
+        console.log(a);
+        console.log(a.fullName);
+        
+        a.birthDay = "2000/01/22";
+
+        a.age = function() {
+            var age = 0;
+            var birthDayYear = parseInt(this.birthDay.split('/')[0]);
+            var today = new Date();
+            age = parseInt(today.getFullYear()) - birthDayYear;
+            return age;
+        }
+
+        console.log(a);
+
+        var xeHoi = {
+            name: "BMW",
+            color: "white",
+            numberOfWheels: 4,
+            wheelStructure: {
+                lop: "cao su", 
+                vo: "cao su"
+            }
+        }
+
+    </script>
+</body>
+</html>

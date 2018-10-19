@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .cover {
+            height: 500px;
+            width: 500px;
+            position: relative;
+        }
+        .square {
+            height: 100px;
+            width: 100px;
+            transition: all 0.5s;
+        }
+        .square:hover {
+            opacity: 0.5;
+        }
+        .red {
+            background: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        .green {
+            background: green;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            z-index: 2;
+        }
+        .yellow {
+            background: yellow;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="cover">
+        <div class="square red"></div>
+        <div class="square green"></div>
+        <div class="square yellow"></div>
+    </div>
+</body>
+</html>

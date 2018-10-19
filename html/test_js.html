@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test JS</title>
+</head>
+
+<body>
+    <!-- Câu 1 -->
+    <!-- <p id="result1"></p>
+    <script>
+        var input1 = prompt("Nhập vào chuỗi");
+        var arrayInput1 = input1.split(' ');
+        var maxIndex = 0;
+        for (var i = 0; i < arrayInput1.length; i++) {
+            if (arrayInput1[i].length > arrayInput1[maxIndex].length)
+                maxIndex = i;
+        }
+        document.getElementById('result1').innerHTML = "Từ dài nhất là " + arrayInput1[maxIndex];
+    </script> -->
+
+    <!-- Câu 2 -->
+    <!-- <p id="result2"></p>
+    <script>
+        var input2 = prompt("Nhập vào chuỗi");
+        var char2 = prompt("Nhập vào một ký tự");
+        var dem = 0;
+        var arrayInput2 = input2.split('');
+        for (var i = 0; i < arrayInput2.length; i++) {
+            if (arrayInput2[i] == char2)
+                dem++;
+        }
+
+        document.getElementById('result2').innerHTML = "Số lần xuất hiện của ký tự: " + dem;
+    </script> -->
+
+    <!-- Câu 3 -->
+    <p><input type="number" id="a"> x<sup>2</sup> + <input type="number" id="b"> x + <input type="number" id="c"> = 0</p>
+    <p><button onclick="giai()">Giải</button></p>
+    <p id="result3"></p>
+    <script>
+        function giai() {
+            var a = parseFloat(document.getElementById('a').value);
+            var b = parseFloat(document.getElementById('b').value);
+            var c = parseFloat(document.getElementById('c').value);
+
+            var delta = b*b - 4*a*c;
+            var kq = ""
+
+            if (delta < 0) {
+                kq = "Phương trình vô nghiệm";
+            } else if (delta == 0) {
+                kq = "Phuong trình có nghiệm kép x = " + (-b / (2*a));
+            } else {
+                kq = "Phương trình có 2 nghiệm x<sub>1</sub> = " + (-b + Math.sqrt(delta)) / (2*a) + ", x<sub>2</sub> = " + (-b - Math.sqrt(delta)) / (2*a);
+            }
+
+            document.getElementById('result3').innerHTML = kq;
+        }
+    </script>
+</body>
+
+</html>

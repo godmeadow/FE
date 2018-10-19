@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Basic Front End</title>
+    <!-- Library -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+
+    <link href="../css/style.css" type="text/css" rel="stylesheet">
+    <link href="../css/responsive.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <section class="header">
+        <div class="my-container">
+            <div class="logo">
+                <img src="../images/logo-white.png" />
+            </div>
+            <div class="menu desktop">
+                <ul>
+                    <li>
+                        home
+                    </li>
+                    <li>
+                        news
+                    </li>
+                    <li class="parent">
+                        more
+                        <ul class="child">
+                            <li>
+                                event
+                            </li>
+                            <li>
+                                about
+                            </li>
+                            <li>
+                                plus
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="search desktop">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="menu mobile" id="mobile-menu">
+                <ul>
+                    <li>
+                        home
+                    </li>
+                    <li>
+                        news
+                    </li>
+                    <li class="parent">
+                        more
+                        <ul class="child">
+                            <li>
+                                event
+                            </li>
+                            <li>
+                                about
+                            </li>
+                            <li>
+                                plus
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="bars mobile" onclick="openMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </section>
+    <section class="slider">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="slider-image" style="background-image:url('../images/image_1.jpg');">
+                        <h3 class="title">This is slider message</h3>
+                        <img class="d-block w-100" src="../images/image_1.jpg" alt="First slide">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="slider-image" style="background-image:url('../images/image_2.jpg');">
+                        <h3 class="title">This is slider message</h3>
+                        <img class="d-block w-100" src="../images/image_2.jpg" alt="Second slide">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="slider-image" style="background-image:url('../images/image_3.jpg');">
+                        <h3 class="title">This is slider message</h3>
+                        <img class="d-block w-100" src="../images/image_3.jpg" alt="Third slide">
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <i class="fas fa-chevron-circle-left"></i>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <i class="fas fa-chevron-circle-right"></i>
+            </a>
+        </div>
+        <h3 class="main-message">This is main message of sliders</h3>
+    </section>
+    <section class="content">
+        <div class="my-container">
+            <div class="head-content">
+                <div class="label">
+                    popular
+                </div>
+                <div class="next-prev">
+                    <button>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="list">
+                <!-- <div class="item animation-1">
+                    <div class="animation-wrapper">
+                        <div class="image-background" style="background-image: url('../images/image_1.jpg');"></div>
+                    </div>
+                    <h4>This is a post title</h4>
+                    <p>Author
+                        <span>11
+                            <sup>th</sup> July, 2018</span>
+                    </p>
+                </div>
+                <div class="item animation-2">
+                    <div class="animation-wrapper">
+                        <div class="image-background" style="background-image: url('../images/image_2.jpg');"></div>
+                        <div class="effect">
+                            <span>Text</span>
+                        </div>
+                    </div>
+                    <h4>This is a post title</h4>
+                    <p>Author
+                        <span>11
+                            <sup>th</sup> July, 2018</span>
+                    </p>
+                </div>
+                <div class="item animation-3">
+                    <div class="animation-wrapper">
+                        <div class="image-background" style="background-image: url('../images/image_3.jpg');"></div>
+                        <div class="effect">
+                            <span>Text</span>
+                        </div>
+                    </div>
+                    <h4>This is a post title</h4>
+                    <p>Author
+                        <span>11
+                            <sup>th</sup> July, 2018</span>
+                    </p>
+                </div>
+                <div class="item animation-4">
+                    <div class="animation-wrapper">
+                        <div class="image-background" style="background-image: url('../images/image_1.jpg');"></div>
+                        <div class="effect">
+                            <span>Text</span>
+                        </div>
+                    </div>
+                    <h4>This is a post title</h4>
+                    <p>Author
+                        <span>11
+                            <sup>th</sup> July, 2018</span>
+                    </p>
+                </div>
+                <div class="item animation-5">
+                    <div class="animation-wrapper">
+                        <div class="image-background" style="background-image: url('../images/image_2.jpg');"></div>
+                        <div class="effect">
+                            <span>Text</span>
+                        </div>
+                    </div>
+                    <h4>This is a post title</h4>
+                    <p>Author
+                        <span>11
+                            <sup>th</sup> July, 2018</span>
+                    </p>
+                </div>
+                <div class="item animation-6">
+                    <div class="animation-wrapper">
+                        <div class="image-background" style="background-image: url('../images/image_3.jpg');"></div>
+                        <div class="effect">
+                            <span>Text</span>
+                        </div>
+                    </div>
+                    <h4>This is a post title</h4>
+                    <p>Author
+                        <span>11
+                            <sup>th</sup> July, 2018</span>
+                    </p>
+                </div> -->
+                <div class="loading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="pagination">
+                <button>1</button>
+                <button>2</button>
+                <button class="dot">
+                    <i class="fas fa-ellipsis-h"></i>
+                </button>
+                <button>9</button>
+                <button>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <span>Page 1 of 10</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="my-container">
+            <div class="main">
+                <div class="column">
+                    <div class="logo">
+                        <img src="../images/logo-white.png" />
+                    </div>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                        looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
+                        of letters, as opposed to using</p>
+                    <p>Contact us:
+                        <a href="mailto:ngochanh@secure.janeto.com">ngochanh@secure.janeto.com</a>
+                    </p>
+                    <div class="social">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="label">
+                        MORE NEWS
+                    </div>
+                    <div class="my-row">
+                        <img class="thumbnail" src="../images/background.jpg">
+                        <p class="title">It is a long established fact that a reader will</p>
+                        <p class="date">11th, July, 2018</p>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="my-row">
+                        <img class="thumbnail" src="../images/background.jpg">
+                        <p class="title">It is a long established fact that a reader will</p>
+                        <p class="date">11th, July, 2018</p>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="my-row">
+                        <img class="thumbnail" src="../images/background.jpg">
+                        <p class="title">It is a long established fact that a reader will</p>
+                        <p class="date">11th, July, 2018</p>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="column category">
+                    <div class="label">
+                        POPULAR CATEGORY
+                    </div>
+                    <p>Category
+                        <span>8</span>
+                    </p>
+                    <p>Category
+                        <span>8</span>
+                    </p>
+                    <p>Category
+                        <span>8</span>
+                    </p>
+                    <p>Category
+                        <span>8</span>
+                    </p>
+                    <p>Category
+                        <span>8</span>
+                    </p>
+                    <p>Category
+                        <span>8</span>
+                    </p>
+                    <p>Category
+                        <span>8</span>
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="second">
+            <div class="my-container">
+                <p>&copy; Copyright</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="myBtn" class="back-to-top" onclick="topFunction()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+        crossorigin="anonymous"></script>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+
+        function openMobileMenu() {
+            var classList = document.getElementById('mobile-menu').className;
+            if (classList.indexOf('open') >= 0) {
+                document.getElementById('mobile-menu').className = "menu mobile";
+            } else {
+                document.getElementById('mobile-menu').className = "menu mobile open";
+            }
+        }
+    </script>
+    <script src="../script/index_script.js"></script>
+</body>
+
+</html>

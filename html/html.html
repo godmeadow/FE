@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>More about HTML / CSS</title>
+    <style>
+        .table th,
+        .table td {
+            padding: 8px 15px;
+            border-top: 1px solid black;
+            border-left: 1px solid black;
+        }
+
+        .table tr td:last-child,
+        .table tr th:last-child {
+            border-right: 1px solid black;
+        }
+
+        .table tr:last-child td {
+            border-bottom: 1px solid black;
+        }
+
+        .even-odd-table th,
+        .even-odd-table td {
+            padding: 8px 15px;
+        }
+
+        .even-odd-table th {
+            border-bottom: 1px solid black;
+        }
+
+        .even-odd-table tr:nth-child(2n) td {
+            background-color: #f2f5f7;
+        }
+
+        .even-odd-table tr:hover td {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 50%">
+        <p style="height: 35px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;"
+            title="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &quot;lorem ipsum&quot; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).">
+            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+            The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using
+            'Content here, content here', making it look like readable English. Many desktop publishing packages and web
+            page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many
+            web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes
+            on purpose (injected humour and the like).
+        </p>
+    </div>
+    <table cellspacing="0" class="table">
+        <tr>
+            <th>
+                Col 1
+            </th>
+            <th>
+                Col 2
+            </th>
+            <th>
+                Col 3
+            </th>
+        </tr>
+        <tr>
+            <td>
+                Row 1 Col 1
+            </td>
+            <td>
+                Row 1 Col 2
+            </td>
+            <td>
+                Row 1 Col 3
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2">
+                Row 2 Col 1
+            </td>
+            <td>
+                Row 2 Col 2
+            </td>
+            <td>
+                Row 2 Col 3
+            </td>
+        </tr>
+        <tr>
+            <!-- <td>
+                Row 3 Col 1
+            </td> -->
+            <td>
+                Row 3 Col 2
+            </td>
+            <td>
+                Row 3 Col 3
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Row 4 Col 1
+            </td>
+            <td colspan="2">
+                Row 4 Col 2
+            </td>
+            <!-- <td>
+                Row 4 Col 3
+            </td> -->
+        </tr>
+        <tr>
+            <td colspan="3">
+                Row 5 Col 1
+            </td>
+            <!-- <td>
+                Row 5 Col 2
+            </td>
+            <td>
+                Row 5 Col 3
+            </td> -->
+        </tr>
+    </table>
+    <br>
+    <table cellspacing="0" class="even-odd-table">
+        <tr>
+            <th>
+                Col 1
+            </th>
+            <th>
+                Col 2
+            </th>
+            <th>
+                Col 3
+            </th>
+        </tr>
+        <tr>
+            <td>
+                Row 1 Col 1
+            </td>
+            <td>
+                Row 1 Col 2
+            </td>
+            <td>
+                Row 1 Col 3
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Row 2 Col 1
+            </td>
+            <td>
+                Row 2 Col 2
+            </td>
+            <td>
+                Row 2 Col 3
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Row 3 Col 1
+            </td>
+            <td>
+                Row 3 Col 2
+            </td>
+            <td>
+                Row 3 Col 3
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Row 4 Col 1
+            </td>
+            <td>
+                Row 4 Col 2
+            </td>
+            <td>
+                Row 4 Col 3
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Row 5 Col 1
+            </td>
+            <td>
+                Row 5 Col 2
+            </td>
+            <td>
+                Row 5 Col 3
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Row 6 Col 1
+            </td>
+            <td>
+                Row 6 Col 2
+            </td>
+            <td>
+                Row 6 Col 3
+            </td>
+        </tr>
+    </table>
+    <br>
+    <pre>abc          123
+        xyz
+    </pre>
+    <audio controls>
+        <source src="../files/nhac.mp3" />
+    </audio>
+    <div>
+        <video controls poster="../images/image_1.jpg">
+            <source src="../files/video.mp4" />
+        </video>
+    </div>
+</body>
+
+</html>

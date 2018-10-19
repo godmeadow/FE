@@ -1,0 +1,120 @@
+.mobile {
+    display: none !important;
+}
+
+@media all and (max-width: 1020px) {
+    .my-container {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .footer .my-container {
+        padding: 0;
+    }
+}
+
+@media all and (max-width: 991px) {
+    .content .list .item,
+    .content .list .item:nth-child(3n) {
+        width: 49%;
+        margin-right: 2%;
+    }
+    .content .list .item:nth-child(2n) {
+        margin-right: 0;
+    }
+}
+
+@media all and (max-width: 767px) {
+    .desktop {
+        display: none !important;
+    }
+    .mobile {
+        display: block !important;
+    }
+    .header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 99;
+    }
+    .slider {
+        margin-top: 75px;
+    }
+    .menu {
+        position: fixed;
+        top: 75px;
+        left: 0;
+        z-index: 99;
+        height: 0;
+        background-color: skyblue;
+        width: 100%;
+        text-align: center;
+        overflow: hidden;
+        transition: height 0.5s ease-in-out;
+    }
+    .menu.open {
+        height: calc(100vh - 75px);
+    }
+    .header .menu {
+        padding: 0;
+    }
+    .header .menu ul {
+        border-bottom: 1px solid white;
+    }
+    .header .menu ul li {
+        display: block;
+        border-top: 1px solid white;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .header .menu .child {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        margin-top: 30px;
+        margin-bottom: -30px;
+    }
+    .header .menu .child li:last-child {
+        border-bottom: 1px solid white;
+    }
+    .header .menu .child {
+        border: none;
+    }
+    .header .menu .parent:hover .child {
+        height: 226px;
+    }
+    .header .bars {
+        margin-top: 18px;
+        float: right;
+        padding: 5px 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .header .bars:hover {
+        border-color: white;
+        color: white;
+    }
+    .slider .slider-image .title {
+        width: 100%;
+        text-align: center;
+    }
+    .footer .main .column {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 25px;
+    }
+}
+
+@media all and (max-width: 575px) {
+    .content .list .item, 
+    .content .list .item:nth-child(2n),
+    .content .list .item:nth-child(3n) {
+        width: 100%;
+        margin-right: 0;
+    }
+}

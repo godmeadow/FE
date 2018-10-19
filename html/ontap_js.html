@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>Bài 42</h1>
+    <p id="text">Web Front-End is interesting</p>
+    <button id="btn1">+</button>
+    <button id="btn2">-</button>
+
+    <br>
+
+    <h1>Bài 43</h1>
+    <input id="text2" type="text">
+    <button id="btn3">Kết quả</button>
+    <p id="result"></p>
+
+    <br>
+
+    <h1>Bài 44</h1>
+    <input id="text3" type="number">
+    <button id="btn4">Tiếp tục</button>
+    <p id="result2"></p>
+
+    <br>
+
+    <h1>bài 47</h1>
+    <p id="result3"></p>
+    <button id="btn5">Sắp xếp tăng dần</button>
+    <button id="btn6">Sắp xếp giảm dần</button>
+    <script>
+        $(document).ready(function () {
+            $('#btn1').click(function () {
+                $('#text').css("font-size", function () {
+                    return parseInt($(this).css('font-size')) + 1 + "px";
+                });
+            });
+
+            $('#btn2').click(function () {
+                $('#text').css("font-size", function () {
+                    return parseInt($(this).css('font-size')) - 1 + "px";
+                });
+            });
+
+            $('#btn3').click(function () {
+                var text = $('#text2').val().split("");
+                var temp = Array.from(new Set(text));
+                document.getElementById('result').innerHTML = temp.toString().replace(/,/g, "");
+            });
+
+            var dem = 0;
+            var temp = [];
+            var max = 0;
+            $('#btn4').click(function () {  
+                var text = $('#text3').val();  
+                temp.push(text);
+                dem++;
+                if (dem == 5) {
+                    $('#text3').attr("disabled", "true");
+                    for(var i = 0; i < temp.length; i ++) {
+                        if(temp[i] > max)
+                            max = temp[i];
+                    }
+                    document.getElementById('result2').innerHTML = max;
+                }
+            });
+            
+            var arr = ["Green", "Red", "Blue", "Orange", "Yellow", "Pink"];
+            document.getElementById('result3').innerHTML = arr;
+            $('#btn5').click(function () {
+                arr.sort();
+                document.getElementById('result3').innerHTML = arr;
+            });
+
+            $('#btn6').click(function () {
+                arr.sort();
+                arr.reverse();
+                document.getElementById('result3').innerHTML = arr;
+            });
+        });
+    </script>
+</body>
+
+</html>

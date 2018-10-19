@@ -1,0 +1,498 @@
+body {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.my-container {
+    width: 1000px;
+    margin: auto;
+}
+
+.header {
+    height: 75px;
+    background-color: skyblue;
+}
+
+.header .my-container,
+.header .logo img {
+    height: 100%;
+}
+
+.header .logo {
+    height: 75px;
+    padding: 10px 0;
+    animation: flash 1s infinite;
+}
+
+@keyframes flash {
+    0% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.3;
+    }
+}
+
+.header .logo,
+.header .menu {
+    float: left;
+}
+
+.header .menu {
+    padding: 0 35px;
+}
+
+.header .menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.header .menu ul li {
+    display: inline-block;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 22px 30px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.header .menu ul li:hover {
+    color: white;
+    background-color: black;
+}
+
+.header .menu .parent {
+    position: relative;
+}
+
+.header .menu .parent:hover .child {
+    height: 221px;
+}
+
+.header .menu .child {
+    position: absolute;
+    top: 75px;
+    left: 50%;
+    background-color: #f1f2f5;
+    text-align: center;
+    width: 150%;
+    transform: translateX(-50%);
+    height: 0;
+    z-index: 1;
+    overflow: hidden;
+    transition: height 0.5s ease;
+}
+
+.header .menu .child li {
+    display: block;
+    color: black;
+}
+
+.header .menu .child li:hover {
+    color: white;
+}
+
+.header .search {
+    float: right;
+    font-size: 30px;
+    padding-top: 13px;
+    cursor: pointer;
+}
+
+.header .search i {
+    transform-origin: 100% 100%;
+    animation: swing 1s infinite;
+}
+
+@keyframes swing {
+    0%, 50%, 100% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(10deg);
+    }
+    50% {
+        transform: rotate(-10deg);
+    }
+}
+
+.slider {
+    position: relative;
+}
+
+.slider .slider-image {
+    height: calc(100vh - 75px);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.slider .slider-image img {
+    opacity: 0;
+}
+
+.slider .slider-image .title {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-shadow: 1px 2px 1px #fff;
+}
+
+.slider .main-message {
+    position: absolute;
+    color: white;
+    bottom: 25px;
+    left: 0;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-control-next .fas,
+.carousel-control-prev .fas {
+    font-size: 40px;
+}
+
+.carousel-control-next {
+    justify-content: flex-end;
+}
+
+.carousel-control-prev {
+    justify-content: flex-start;
+}
+
+.carousel-control-next .fas {
+    padding-right: 15px;
+}
+
+.carousel-control-prev .fas {
+    padding-left: 15px;
+}
+
+.content .my-container {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding: 15px;
+}
+
+.content .head-content .label {
+    padding: 6px 25px;
+    background-color: skyblue;
+    text-transform: uppercase;
+    display: inline-block;
+    border: 1px solid black;
+    animation: rainbow 10s infinite;
+}
+
+@keyframes rainbow {
+    0%, 100% {
+        background-color: red;
+    }
+    14% {
+        background-color: orange;
+    }
+    28% {
+        background-color: yellow;
+    }
+    42% {
+        background-color: green;
+    }
+    56% {
+        background-color: blue;
+    }
+    70% {
+        background-color: blueviolet
+    }
+    84% {
+        background-color: purple;
+    }
+}
+
+.content .head-content .next-prev {
+    float: right;
+}
+
+.content .head-content .next-prev button {
+    padding: 3px 12px;
+    font-size: 20px;
+    background-color: #f2f5f7;
+    border: 1px solid black;
+    outline: none;
+    cursor: pointer;
+}
+
+.content .head-content .next-prev button:first-child {
+    margin-right: 10px;
+}
+
+.content .list {
+    margin: 30px 0;
+}
+
+.content .list .item {
+    width: 32%;
+    float: left;
+    margin-right: 2%;
+    margin-bottom: 10px;
+}
+
+.content .list .item:nth-child(3n) {
+    margin-right: 0;
+}
+
+.content .list .item .image-background {
+    background-size: cover;
+    background-position: center;
+    height: 175px;
+}
+
+.content .list .item h4 {
+    margin-top: 15px;
+}
+
+.content .list .item p {
+    font-style: italic;
+}
+
+.content .list .item p span {
+    float: right;
+    font-style: normal;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.content .pagination {
+    position: relative;
+}
+
+.content .pagination button {
+    min-width: 30px;
+    text-align: center;
+    margin-right: 10px;
+    cursor: pointer;
+    outline: none;
+}
+
+.content .pagination button.dot {
+    background: none;
+    border: none;
+    cursor: initial;
+}
+
+.content .pagination > span {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.footer .my-container {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.footer .main {
+    padding: 15px;
+    background-color: skyblue;
+}
+
+.footer .main .column {
+    width: 32%;
+    margin-right: 2%;
+    float: left;
+}
+
+.footer .main .column:nth-child(3n) {
+    margin-right: 0;
+}
+
+.footer .main .logo {
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+.footer .main .social {
+    font-size: 40px;
+}
+
+.footer .main .social .fab {
+    cursor: pointer;
+}
+
+.footer .main .social .fab.fa-facebook:hover {
+    color: #3b5998;
+}
+
+.footer .main .social .fab.fa-twitter:hover {
+    color: #5ba5d7;
+}
+
+.footer .main .social .fab.fa-instagram:hover {
+    color: #df385a;
+}
+
+.footer .main .social .fab.fa-youtube:hover {
+    color: #f70000;
+}
+
+.footer .main .label {
+    display: inline-block;
+    padding: 6px 25px;
+    border: 1px solid black;
+    background-color: yellow; 
+    margin-bottom: 30px;
+}
+
+.footer .main .my-row {
+    margin-bottom: 15px;
+}
+
+.footer .main .thumbnail {
+    width: 35%;
+    float: left;
+    margin-right: 10px;
+}
+
+.footer .main .title {
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.footer .main .date {
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+.footer .main .category p {
+    line-height: 1.2;
+}
+
+.footer .main .category span {
+    float: right;
+}
+
+.footer .second .my-container {
+    background-color: black;
+    padding: 10px 15px;
+    color: white;
+}
+
+.footer .second .my-container p {
+    margin-bottom: 0;
+}
+
+.back-to-top {
+    font-size: 30px;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    line-height: 1;
+    padding: 5px;
+    border: 5px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+    background: white;
+    display: none;
+}
+
+/* Animation */
+.animation-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+.animation-1 .image-background {
+    transition: transform 0.5s ease-in-out;
+}
+.animation-1:hover .image-background {
+    transform: scale(1.2);
+    /* transition-delay: 1s; */
+}
+
+.animation-2 .effect {
+    line-height: 175px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.7);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.animation-2:hover .effect {
+    opacity: 1;
+}
+
+.animation-3 .effect,
+.animation-4 .effect {
+    line-height: 175px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+    height: 100%;
+    text-align: center;
+    color: white;
+    width: 0%;
+    transition: width 1s ease;
+    overflow: hidden;
+}
+
+.animation-3:hover .effect,
+.animation-4:hover .effect {
+    width: 100%;
+}
+
+.animation-4 .effect {
+    right: 0;
+    left: auto;
+}
+
+.animation-5 .effect,
+.animation-6 .effect {
+    line-height: 175px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+    width: 100%;
+    text-align: center;
+    color: white;
+    height: 0%;
+    transition: height 1s ease;
+    overflow: hidden;
+}
+
+.animation-5:hover .effect,
+.animation-6:hover .effect {
+    height: 100%;
+}
+
+.animation-6 .effect {
+    bottom: 0;
+    top: auto;
+}
+
+.loading {
+    font-size: 20px;
+    text-align: center;
+}
+
+.liked {
+    opacity: 0.5;
+}

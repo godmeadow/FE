@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript 2</title>
+</head>
+<body>
+    <button onclick="hoiTuoi();">Click !</button>
+    <button onclick="gioiTinh();">Click !</button>
+    <h6>Thien</h6>
+    <h1>Thien</h1>
+    <heading>Thien</heading>
+    <script>
+        var count = 0;
+        // var chuoi = "";
+        function dem() {
+            count++;
+            // chuoi += "*";
+            var chuoi = "";
+            for (var i = 0; i < count; i++)
+                chuoi +=  "*";
+            console.log(chuoi);
+        }
+
+        function inSoNguyenTo() {
+            count++;
+            if (kiemTraSNT(count))
+                console.log(count);
+        }
+
+        function kiemTraSNT(so) {
+            for (var i = 2; i < so; i++) {
+                if (so % i == 0)
+                    return false;
+            }
+            return true;
+        }
+
+        function daClick() {
+            alert("Bạn đã click vào button !!!");
+        }
+
+        function gioiTinh() {
+            var gender = confirm("Giới tính của bạn là nam phải không ?");
+            if (gender) 
+                console.log ("Bạn là nam");
+            else 
+                console.log("Bạn không phải nam")
+        }
+
+        function hoiTuoi() {
+            var answer = prompt("Ban bao nhiêu tuổi", "Không biết");
+            if (answer != null)
+                console.log("Số tuổi của bạn là: " + answer);
+        }
+    </script>
+</body>
+</html>

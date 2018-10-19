@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript exercises</title>
+</head>
+
+<body>
+    <button onclick="bai1()">Bài 1</button>
+    <button onclick="bai2()">Bài 2</button>
+    <button onclick="bai3()">Bài 3</button>
+    <button onclick="bai4()">Bài 4</button>
+    <button onclick="bai5()">Bài 5</button>
+    <button onclick="bai6()">Bài 6</button>
+    <button onclick="bai7()">Bài 7</button>
+    <script>
+        function bai1() {
+            var chuoi = prompt("Bạn vui lòng nhập vào 1 chuỗi");
+            alert(chuoi.split('').reverse().join(''));
+        }
+
+        function bai2() {
+            var chuoi = prompt("Nhập vào một số");
+            if (chuoi != null) {
+                var so = parseInt(chuoi);
+                if (!Number.isNaN(so)) {
+                    if (so % 2 == 1)
+                        alert("Bạn vừa nhập vào số lẻ");
+                    else
+                        alert("Bạn vừa nhập vào số chẵn");
+                } else {
+                    alert("Bạn vui lòng nhập vào số");
+                }
+            }
+        }
+
+        function bai3() {
+            var chuoi = prompt("Vui lòng nhập vào 1 chuỗi");
+            alert("Chiều dài chuỗi vừa nhập là: " + chuoi.length);
+        }
+
+        function bai4() {
+            var chuoi = prompt("Vui lòng nhập vào 1 chuỗi");
+            var array = chuoi.split(" ");
+            alert("Chuỗi bạn vừa nhập có: " + array.length + " từ");
+            console.log(array);
+        }
+
+        function bai5() {
+            var so1 = prompt("Nhập vào số thứ nhất");
+            var so2 = prompt("Nhập vào số thứ hai");
+            so1 = parseFloat(so1);
+            so2 = parseFloat(so2);
+            if (!Number.isNaN(so1) && !Number.isNaN(so2)) {
+                if (so1 > so2) {
+                    alert(so1 + " lớn hơn " + so2);
+                } else if (so1 == so2) {
+                    alert(so1 + " bằng " + so2);
+                } else {
+                    alert(so1 + " nhỏ hơn " + so2);
+                }
+            } else {
+                alert("Bạn vui lòng nhập vào đúng 2 số");
+            }
+        }
+
+        function bai6() {
+            var so1 = prompt("Nhập vào số thứ nhất");
+            var so2 = prompt("Nhập vào số thứ hai");
+            var so3 = prompt("Nhập vào số thứ ba");
+            so1 = parseFloat(so1);
+            so2 = parseFloat(so2);
+            so3 = parseFloat(so3);
+            if (!Number.isNaN(so1) && !Number.isNaN(so2) && !Number.isNaN(so3)) {
+                if (so1 + so2 > so3 && so1 + so3 > so2 && so2 + so3 > so1) {
+                    alert("Ba số: " + so1 + ", " + so2 + ", " + so3 + " thỏa điều kiện tạo thành tam giác");
+                } else {
+                    alert("Ba số: " + so1 + ", " + so2 + ", " + so3 + " không thỏa điều kiện tạo thành tam giác");
+                }
+            } else {
+                alert("Bạn vui lòng nhập vào đúng 2 số");
+            }
+        }
+
+        function bai7() {
+            var a = prompt("Nhập vào hệ số a");
+            var b = prompt("Nhập vào hệ số b");
+            var c = prompt("Nhập vào hệ số c");
+            a = parseFloat(a);
+            b = parseFloat(b);
+            c = parseFloat(c);
+            if (!Number.isNaN(a) && !Number.isNaN(b) && !Number.isNaN(c)) {
+                var delta = b*b - 4*a*c;
+                if (delta < 0) {
+                    alert("Phương trình vô nghiệm");
+                } else if (delta == 0) {
+                    alert("Phương trình có nghiệm kép: " + (-b / (2*a)));
+                } else {
+                    var cangDelta = Math.sqrt(delta);
+                    var x1 = (-b + cangDelta) / (2*a);
+                    var x2 = (-b - cangDelta) / (2*a);
+                    alert("Phương trình có 2 nghiệm: " + x1 + ", " + x2);
+                }
+            } else {
+                alert("Bạn vui lòng nhập vào đúng 2 số");
+            }
+        }
+    </script>
+</body>
+
+</html>

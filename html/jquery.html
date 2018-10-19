@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jquery</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <style>
+        .demo {
+            height: 100px; 
+            width: 100px;
+            background: grey;
+            margin-bottom: 10px;
+        }
+        .green {
+            background: green;
+        }
+        .opacity {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo" class="demo" onclick="toggleOpacity()"></div>
+    <button onclick="addClass()">Add Class</button>
+    <button onclick="toggleClass()">Toggle Class</button>
+    <!-- <p class="demo" hanh="test">Hello</p>
+    <button onclick="changeImage()">Change image</button>
+    <img class="test" src="../images/image_1.jpg" /> -->
+    <script>
+        function changeImage() {
+            $('.test').attr("src", "../images/image_2.jpg");
+        }
+
+        function addClass() {
+            $('#demo').addClass('green');
+        }
+
+        function toggleClass() {
+            $('#demo').toggleClass('green');
+        }
+
+        function toggleOpacity() {
+            $('#demo').toggleClass('opacity');
+        }
+
+        $(document).ready(function () {
+            // alert($('p').attr("hanh"));
+            // $('p').attr("hanh", "changed");
+            // alert($('p').attr("hanh"));
+
+        });
+    </script>
+</body>
+
+</html>

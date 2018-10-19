@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Basic Front End</title>
+    <!-- Library -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row list">
+            
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script>
+        function getData() {
+            $.ajax({
+                method: "GET", 
+                url: "https://www.jasonbase.com/things/Y0mJ.json",
+                success: function (res) {
+                    var html = "";
+                    for (var i = 0; i < res.data.length; i++) {
+                        html += '<div class="col-lg-2 col-md-3 col-sm-4 col-6">' +
+                            '<a  href="./bootstrap_details.html?id=' + res.data[i].id + '">' +
+                                '<div style="height: 100px; margin-bottom: 30px; background:' + res.data[i].color + '">' +
+                                    res.data[i].name +
+                                '</div>' +
+                            '</a>'+
+                        '</div>';
+                    }
+                    $('.list').html(html);
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        }
+
+        $(document).ready(function (){
+            getData();
+        })
+    </script>
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-12">
+                        <div style="background:red; height: 200px; margin-bottom : 30px"></div>
+                    </div>
+                    <div class="col-6">
+                        <div style="background:yellow; height: 400px; margin-bottom : 30px"></div>
+                    </div>
+                    <div class="col-6">
+                        <div style="background:green; height: 400px; margin-bottom : 30px"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-12">
+                        <div style="background:purple; height: 400px; margin-bottom : 30px"></div>
+                    </div>
+                    <div class="col-12">
+                        <div style="background:skyblue; height: 200px; margin-bottom : 30px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-12">
+                        <div style="background: red; margin-bottom: 30px; height: 200px"></div>
+                    </div>
+                    <div class="col-12">
+                        <div style="background: green; margin-bottom: 30px; height: 200px"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div style="background: blue; margin-bottom: 30px; height: 430px"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <div style="background: yellow; margin-bottom: 30px; height: 200px"></div>
+            </div>
+            <div class="col-2">
+                <div style="background: skyblue ; margin-bottom: 30px; height: 200px"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-12">
+                        <div style="background: orange ; margin-bottom: 30px; height: 200px"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div style="background: violet ; margin-bottom: 30px; height: 200px"></div>
+                    </div>
+                    <div class="col-6">
+                        <div style="background: darkkhaki ; margin-bottom: 30px; height: 200px"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div style="background: lightseagreen ; margin-bottom: 30px; height: 430px"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">.col-md-4</div>
+            <div class="col-md-4 offset-md-4">.col-md-4 .offset-md-4</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+            <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">.col-md-6 .offset-md-3</div>
+        </div>
+    </div> -->
+</body>
+
+</html>

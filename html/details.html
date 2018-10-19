@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Details</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="content">
+
+    </div>
+    <script>
+        $(document).ready(function() {
+            getData();
+        });
+
+        function getData() {
+            var url = new URL(window.location.href);
+            var code = url.searchParams.get('id');
+            if (code != null) {
+                $.ajax({
+                    method: 'GET',
+                    url: 'https://www.jasonbase.com/things/' + code + '.json',
+                    success: function(res) {
+                        var html = "<p>" + res.title + "</p>" +
+                            "<p>" + res.author + "</p>" +
+                            "<p>" + res.details + "</p>"
+                        $('.content').html(html)
+                    },
+                    error: function(err) {
+                        console.log(err);
+                        window.alert('Lỗi');    
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

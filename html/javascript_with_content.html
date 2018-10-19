@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Change content with JS</title>
+    <style>
+        .square {
+            height: 250px;
+            width: 250px;
+            display: inline-block;
+            background-color: #f2f5f7;
+        }
+
+        .background-yellow {
+            background-color: yellow;
+        }
+
+        .background-red {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="square" id="square-1" onclick="clickDiv1()">
+
+    </div>
+    <div class="square" id="square-2" onclick="clickDiv2()">
+
+    </div>
+    <br>
+    <button onclick="reset()">Reset</button>
+    <div>
+        <p>Nhập vào số a
+            <input type="number" id="so1">
+        </p>
+        <p>Nhập vào số b
+            <input type="number" id="so2">
+        </p>
+        <button onclick="sosanh()">Tính</button>
+        <button onclick="cong()">+</button>
+        <button onclick="tru()">-</button>
+        <button onclick="nhan()">*</button>
+        <button onclick="chia()">/</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function clickDiv1() {
+            var oldClass = document.getElementById('square-2').className;
+            if (oldClass.indexOf('background-red') < 0)
+                document.getElementById('square-2').className = oldClass + " background-red";
+            else
+                document.getElementById('square-2').className = oldClass.replace("background-red", "");
+        }
+
+        function clickDiv2() {
+            var oldClass = document.getElementById('square-1').className;
+            if (oldClass.indexOf('background-yellow') < 0)
+                document.getElementById('square-1').className = oldClass + " background-yellow";
+            else
+                document.getElementById('square-1').className = oldClass.replace("background-yellow", "");
+        }
+
+        function reset() {
+            var total = document.getElementsByClassName('square').length;
+            for (var i = 0; i < total; i++) {
+                document.getElementsByClassName('square')[i].className = "square";
+            }
+        }
+
+        function sosanh() {
+            var so1 = parseFloat(document.getElementById('so1').value);
+            var so2 = parseFloat(document.getElementById('so2').value);
+            if (!Number.isNaN(so1) && !Number.isNaN(so2)) {
+                var result;
+                if (so1 > so2) {
+                    result = "a lớn hơn b";
+                } else if (so1 == so2) {
+                    result = "a bằng b";
+                } else {
+                    result = "a nhỏ hơn b";
+                }
+                var oldHtml = document.getElementById("result").innerHTML;
+                document.getElementById("result").innerHTML = oldHtml + result + "<br>";
+            }
+        }
+
+        function cong() {
+            var so1 = parseFloat(document.getElementById('so1').value);
+            var so2 = parseFloat(document.getElementById('so2').value);
+            if (!Number.isNaN(so1) && !Number.isNaN(so2)) {
+                var result = "a + b = " + (so1 + so2);
+                var oldHtml = document.getElementById("result").innerHTML;
+                document.getElementById("result").innerHTML = oldHtml + result + "<br>";
+            }
+        }
+
+        function tru() {
+            var so1 = parseFloat(document.getElementById('so1').value);
+            var so2 = parseFloat(document.getElementById('so2').value);
+            if (!Number.isNaN(so1) && !Number.isNaN(so2)) {
+                var result = "a - b = " + (so1 - so2);
+                var oldHtml = document.getElementById("result").innerHTML;
+                document.getElementById("result").innerHTML = oldHtml + result + "<br>";
+            }
+        }
+
+        function nhan() {
+            var so1 = parseFloat(document.getElementById('so1').value);
+            var so2 = parseFloat(document.getElementById('so2').value);
+            if (!Number.isNaN(so1) && !Number.isNaN(so2)) {
+                var result = "a * b = " + (so1 * so2);
+                var oldHtml = document.getElementById("result").innerHTML;
+                document.getElementById("result").innerHTML = oldHtml + result + "<br>";
+            }
+        }
+
+        function chia() {
+            var so1 = parseFloat(document.getElementById('so1').value);
+            var so2 = parseFloat(document.getElementById('so2').value);
+            if (!Number.isNaN(so1) && !Number.isNaN(so2)) {
+                var result = "a / b = " + (so1 / so2);
+                var oldHtml = document.getElementById("result").innerHTML;
+                document.getElementById("result").innerHTML = oldHtml + result + "<br>";
+            }
+        }
+    </script>
+</body>
+
+</html>

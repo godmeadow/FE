@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cart</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="list">
+        
+    </div>
+    <button onclick="">Thanh toán</button>
+    <button onclick="backToShop()">Tiếp tục</button>
+
+    <script>
+        var cart;
+
+        $(document).ready(function () {
+            cart = localStorage.getItem('cart');
+            if (cart == null) {
+                cart = [];
+                localStorage.setItem('cart', JSON.stringify(cart));
+            } else {
+                cart = JSON.parse(cart);
+            }
+
+            renderData();
+        });
+
+        function renderData() {
+            var html = "";
+
+            for (var i = 0; i < cart.length; i++) {
+                html += "<div class='item'>" +
+                    "<p><button onclick='decrease(" + i + ")'>-</button> " + cart[i].name + " - " + cart[i].price + " x " + cart[i].quantity + " = " + cart[i].price * cart[i].quantity + " <button onclick='increase(" + i + ")'>+</button> <button onclick='remove(" + i + ")'>X</button></p>" +
+                    "</div>";
+
+                
+            }
+
+            $('.list').html(html);
+        }
+
+        function increase(id) {
+            cart[id].quantity++;
+            /* Cập nhật localStorage */
+            localStorage.setItem('cart', JSON.stringify(cart));
+            /* Cập nhật giao diện */
+            renderData();
+        }
+
+        function decrease(id) {
+            cart[id].quantity--;
+            if (cart[id].quantity == 0) {
+                cart.splice(id, 1);
+            }
+            /* Cập nhật localStorage */
+            localStorage.setItem('cart', JSON.stringify(cart));
+            /* Cập nhật giao diện */
+            renderData();
+            if (cart.length == 0) {
+                backToShop();
+            }
+
+        }
+
+        function remove(id) {
+            cart.splice(id, 1);
+            /* Cập nhật localStorage */
+            localStorage.setItem('cart', JSON.stringify(cart));
+            /* Cập nhật giao diện */
+            renderData();
+            if (cart.length == 0) {
+                backToShop();
+            }
+        }
+
+        function backToShop() {
+            window.location.href = "shop.html";
+        }
+
+
+    </script>
+</body>
+
+</html>

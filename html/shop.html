@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shop</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <button onclick="goToCart()">Đi đến giỏ hàng</button>
+    <div class="list">
+
+    </div>
+
+    <script>
+        var products = [
+            { name: "Điện thoại", price: 10000000 },
+            { name: "Tivi", price: 7000000 },
+            { name: "Tủ lạnh", price: 12000000 }
+        ];
+
+        var cart = [];
+
+        $(document).ready(function () {
+            var html = "";
+
+            for (var i = 0; i < products.length; i++) {
+                html += "<div class='item'>" +
+                    "<p>" + products[i].name + " - " + products[i].price + " <button onclick='addToCart(" + i + ")'>Thêm</button></p>" +
+                    "</div>";
+            }
+
+            $('.list').html(html);
+
+            cart = localStorage.getItem('cart');
+            if (cart == null) {
+                cart = [];
+                localStorage.setItem('cart', JSON.stringify(cart));
+            } else {
+                cart = JSON.parse(cart);
+            }
+        });
+
+        function addToCart(index) {
+            var data = {
+                name: products[index].name,
+                price: products[index].price
+            };
+
+            var checked = checkCart(data.name);
+
+            if (checked == -1) {
+                data.quantity = 1;
+                cart.push(data);
+            } else {
+                cart[checked].quantity++;
+            }
+
+            /* Cập nhật localStorage */
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function checkCart(name) {
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i].name == name)
+                    return i;
+            }
+            return -1;
+        }
+
+        function goToCart() {
+            if (cart.length != 0) {
+                window.location.href = "cart.html";
+            }
+        }
+    </script>
+</body>
+
+</html>

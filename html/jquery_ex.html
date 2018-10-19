@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jquery Exercises</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Nhập ngày tháng năm sinh, in ra thứ và tuổi -->
+    <style>
+        .bai1 input {
+            width: 50px;
+        }
+    </style>
+    <div class="bai1">
+        <h2>Bài 1</h2>
+        <p class="text">Nhập vào thông tin ngày sinh:</p>
+        <p>
+            <input type="number" class="day" /> /
+            <input type="number" class="month" /> /
+            <input type="number" class="year" />
+        </p>
+        <p>
+            <button onclick="bai1()">Tính</button>
+        </p>
+        <div class="result"></div>
+    </div>
+    <script>
+        function bai1() {
+            var thangSinh = parseInt($(".bai1 .month").val()) - 1;
+            var ngaySinh = new Date($(".bai1 .year").val(), thangSinh, $(".bai1 .day").val(), 0, 0, 0);
+            var dayOfWeek = ngaySinh.getDay();
+            var dayKQ = "";
+            switch (dayOfWeek) {
+                case 1:
+                    dayKQ = "Thứ hai";
+                    break;
+                case 2:
+                    dayKQ = "Thứ ba";
+                    break;
+                case 3:
+                    dayKQ = "Thứ tư";
+                    break;
+                case 4:
+                    dayKQ = "Thứ năm";
+                    break;
+                case 5:
+                    dayKQ = "Thứ sáu";
+                    break;
+                case 6:
+                    dayKQ = "Thứ bảy";
+                    break;
+                default:
+                    dayKQ = "Chủ nhật";
+            }
+            $('.result').html(dayKQ);
+
+            var today = new Date();
+            var stringkq = "";
+            
+            if (
+                ngaySinh.getMonth() < today.getMonth() 
+                || (
+                    ngaySinh.getMonth() == today.getMonth && 
+                    ngaySinh.getDate <= today.getDate()
+                    )
+                ) {
+                var tuoi = today.getFullYear() - ngaySinh.getFullYear();
+                var sinhNhat = new Date(today.getFullYear(), ngaySinh.getMonth(), ngaySinh.getDate());
+                var ngayTuoi = 0;
+                while (sinhNhat.getDate() != today.getDate() || sinhNhat.getMonth() != today.getMonth()) {
+                    sinhNhat.setDate(sinhNhat.getDate() + 1);
+                    ngayTuoi++;
+                }
+                stringkq = tuoi + " tuổi " + ngayTuoi + " ngày";
+            } else {
+                var tuoi = today.getFullYear() - ngaySinh.getFullYear() - 1;
+                var sinhNhat = new Date(today.getFullYear() - 1, ngaySinh.getMonth(), ngaySinh.getDate());
+                var ngayTuoi = 0;
+                while (sinhNhat.getDate() != today.getDate() || sinhNhat.getMonth() != today.getMonth() || sinhNhat.getFullYear() != today.getFullYear()) {
+                    sinhNhat.setDate(sinhNhat.getDate() + 1);
+                    ngayTuoi++;
+                }
+                stringkq = tuoi + " tuổi " + ngayTuoi + " ngày";
+            }
+
+            $('.result').append(", " + stringkq);
+        }
+    </script>
+
+    <!-- Di chuyển hình vuông -->
+    <style>
+        .bai2 .street {
+            border: 1px dotted black;
+            position: relative;
+            height: 100px;
+        }
+        .bai2 .square {
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 1s linear;
+        }
+        .bai2 .square.end {
+            left: calc(100% - 100px);
+        }
+        .bai2 .controll {
+            margin-top: 10px; 
+        }
+    </style>
+    <div class="bai2">
+        <div class="street">
+            <div class="square"></div>
+        </div>
+        <div class="controll">
+            <button onclick="$('.bai2 .square').removeClass('end');"><</button>
+            <button onclick="$('.bai2 .square').addClass('end');" style="float: right;">></button>
+        </div>
+    </div>
+    
+    <!-- Bind Click event -->
+    <style>
+        .bai3 {
+            margin-top: 20px;
+        }
+        .bai3 .click {
+            height: 500px;
+            width: 500px;
+            background: pink;
+        }
+    </style>
+    <div class="bai3">
+        <div class="click">
+
+        </div>
+        <p class="result"></p>
+        <p><a href="https://laptrinhvien.io">Lập trình viên</a></p>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('.bai3 .click').on("click", function(e) {
+                console.log(e);
+                console.log('Click !');
+            });
+
+            $('.bai3 a').on("click", function(e) {
+                e.preventDefault();
+                console.log("Prevent successfully !");
+            });
+
+            $('.bai3 .click').on("mousemove", function(e) {
+                $('.bai3 .click').html(e.pageX + "/" + e.pageY);
+            });
+
+            $('.bai3 .click').on("mouseover", function(e) {
+                $('.bai3 .result').html("Mouse in !!!");
+            });
+
+            $('.bai3 .click').on("mouseout", function(e) {
+                $('.bai3 .result').html("Mouse out !!!");
+            });
+        });
+    </script>
+</body>
+
+</html>

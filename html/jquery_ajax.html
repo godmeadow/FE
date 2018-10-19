@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jquery Ajax</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <style>
+        .item {
+            border-top: 1px dotted black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2>Create new</h2>
+        <p>Name:
+            <input id="name">
+        </p>
+        <p>Email:
+            <input id="email">
+        </p>
+        <p>Message:
+            <textarea id="message"></textarea>
+        </p>
+        <p>
+            <button onclick="sendData()">Send</button>
+        </p>
+    </div>
+    <div>
+        <h2>Update</h2>
+        <input id="u-id" type="hidden" value="0" />
+        <p>Name:
+            <input id="u-name">
+        </p>
+        <p>Email:
+            <input id="u-email">
+        </p>
+        <p>Message:
+            <textarea id="u-message"></textarea>
+        </p>
+        <p>
+            <button onclick="saveData()">Update</button>
+        </p>
+    </div>
+    <div id="result">
+
+    </div>
+    <script>
+        var data;
+
+        $(document).ready(function () {
+            getData();
+        });
+
+        function getData() {
+            $.ajax({
+                method: "GET",
+                url: "http://janeto.us.to:7752/api/contact",
+                success: function (response) {
+                    var html = "";
+                    for (var i = 0; i < response.length; i++) {
+                        html +=
+                            "<div class=\"item\">" +
+                            "<p>" + (i + 1) + ". " + response[i].name + "</p>" +
+                            "<p>" + response[i].email + "</p>" +
+                            "<p>" + response[i].message + "</p>" +
+                            "<p><button onclick=\"deleteData(" + response[i].id + ")\">Delete</button> <button onclick=\"updateData(" + response[i].id + ")\">Edit</button></p>" +
+                            "</div>";
+                    }
+                    $('#result').html(html);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        function sendData() {
+            $.ajax({
+                method: "POST",
+                url: "http://janeto.us.to:7752/api/contact",
+                data: {
+                    name: $('#name').val(),
+                    email: $('#email').val(),
+                    message: $('#message').val(),
+                },
+                success: function (response) {
+                    alert("Bạn đã gửi thành công");
+                    getData();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        function deleteData(id) {
+            var answer = confirm("Bạn có chắc chắn muốn xóa hay không ?");
+            if (answer) {
+                $.ajax({
+                    method: "DELETE",
+                    url: "http://janeto.us.to:7752/api/contact/" + id,
+                    success: function (response) {
+                        alert("Bạn đã xóa thành công");
+                        getData();
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            }
+        }
+
+        function updateData(id) {
+            $.ajax({
+                method: "GET",
+                url: "http://janeto.us.to:7752/api/contact/" + id,
+                success: function (response) {
+                    $("#u-id").val(response.id);
+                    $('#u-name').val(response.name);
+                    $('#u-email').val(response.email);
+                    $('#u-message').val(response.message);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        function saveData() {
+            if ($('#u-id').val() != "0") {
+                $.ajax({
+                    method: "PUT",
+                    url: "http://janeto.us.to:7752/api/contact/" + $('#u-id').val(),
+                    data: {
+                        name: $('#u-name').val(),
+                        email: $('#u-email').val(),
+                        message: $('#u-message').val(),
+                    },
+                    success: function (response) {
+                        alert("Bạn đã cập nhật thành công");
+                        getData();
+                        $('#u-id').val("0");
+                        $('#u-name').val("");
+                        $('#u-email').val("");
+                        $('#u-message').val("");
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

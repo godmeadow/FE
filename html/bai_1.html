@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bài 1</title>
+    <style>
+        .table {
+            padding: 30px;
+            background-color: #f1f2f5;
+            display: inline-block;
+            width: 50%;
+        }
+
+        .table table {
+            width: 100%;
+        }
+
+        .table table td,
+        .table table th {
+            padding: 8px 20px;
+            border-left: 1px solid black;
+            border-top: 1px solid black;
+        }
+
+        .table table tr:last-child td,
+        .table table th {
+            border-bottom: 1px solid black;
+        }
+
+        .table table td:last-child,
+        .table table th:last-child {
+            border-right: 1px solid black;
+        }
+        .table table .hidden {
+            opacity: 0;
+        }
+
+        .table table th {
+            border-top-width: 2px;
+            border-bottom-width: 2px;
+        }
+
+        .table table th:first-child,
+        .table table td:first-child {
+            border-left-width: 2px;
+        }
+        .table table th:last-child,
+        .table table td:last-child {
+            border-right-width: 2px;
+        }
+        .table table .border-top td {
+            border-top-width: 2px;
+        }
+        .table table .border-bottom td {
+            border-bottom-width: 2px !important;
+        }
+        .table table .header th,
+        .table table .even td {
+            background: green;
+        }
+        .table table .odd td {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table">
+        <table cellspacing="0">
+            <tr class="header">
+                <th>Col 1</th>
+                <th>Col 2</th>
+                <th>Col 3</th>
+                <th>Col 4</th>
+            </tr>
+            <tr class="hidden">
+                <td>Row 1 Col 1</td>
+                <td>Row 1 Col 2</td>
+                <td>Row 1 Col 3</td>
+                <td>Row 1 Col 4</td>
+            </tr>
+            <tr class="border-top odd">
+                <td>Row 1 Col 1</td>
+                <td>Row 1 Col 2</td>
+                <td>Row 1 Col 3</td>
+                <td>Row 1 Col 4</td>
+            </tr>
+            <tr class="even">
+                <td>Row 2 Col 1</td>
+                <td>Row 2 Col 2</td>
+                <td>Row 2 Col 3</td>
+                <td>Row 2 Col 4</td>
+            </tr>
+            <tr class="odd">
+                <td>Row 3 Col 1</td>
+                <td>Row 3 Col 2</td>
+                <td>Row 3 Col 3</td>
+                <td>Row 3 Col 4</td>
+            </tr>
+            <tr class="border-bottom even">
+                <td>Row 4 Col 1</td>
+                <td>Row 4 Col 2</td>
+                <td>Row 4 Col 3</td>
+                <td>Row 4 Col 4</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
